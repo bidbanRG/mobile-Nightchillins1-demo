@@ -1,8 +1,10 @@
-import React,{useLayoutEffect,useEffect} from 'react'
-import { StyleSheet, Text, View} from 'react-native';
+import React,{useLayoutEffect,useEffect,useState} from 'react'
+import { StyleSheet, Text, View, StatusBar} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from "@react-navigation/native"
 import { useAppSelector } from '../States/hooks'
+
+
 import styled from 'styled-components';
 import Header from './Header'
 import Feed from './Feed';
@@ -17,8 +19,12 @@ const Home:React.FC = () => {
       });
     },[]);
 
+   
+
+
 	return (
 		<SafeAreaView style = { {...styles.header, backgroundColor:`${IsLightTheme ? 'whitesmoke' : '#1b1b1b' }`}}>
+         <StatusBar style = 'dark'/>
           <Header/>
 			    <Feed/>
 		  </SafeAreaView>

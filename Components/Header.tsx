@@ -5,15 +5,15 @@ import { Ionicons } from '@expo/vector-icons';
 import { useFonts, Lobster_400Regular } from '@expo-google-fonts/lobster'
 import {  Text, View, TouchableOpacity } from 'react-native';
 import { Feather } from '@expo/vector-icons';
-import {useAppDispatch, useAppSelector} from '../States/hooks'
-import { changeTheme } from '../States/Theme'
+
+
 
 const Header:React.FC = () => {
 
     let [loaded,error] = useFonts({Lobster_400Regular});
-    const IsLightTheme:boolean = useAppSelector((state) => state.theme.value)
-    const dispatch = useAppDispatch();
-    const handleTheme = () => dispatch(changeTheme(!IsLightTheme));
+    const IsLightTheme = false;
+     
+  
     
 
    
@@ -31,7 +31,7 @@ const Header:React.FC = () => {
             <MaterialIcons  name="people-alt" size={20} color="black" /> 
          </Icon>
            
-           <Icon onPress = {handleTheme}>
+           <Icon>
            { 
               IsLightTheme ?
               

@@ -1,36 +1,53 @@
 import React,{useLayoutEffect,useEffect,useState} from 'react'
 import { StyleSheet, Text, View, StatusBar} from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { useNavigation } from "@react-navigation/native"
-import { useAppSelector } from '../States/hooks'
-
-
-import styled from 'styled-components';
-import Header from './Header'
+import { SafeAreaView } from 'react-native-safe-area-context';import Header from './Header'
+;
 import Feed from './Feed';
-const Home:React.FC = () => {
-  const IsLightTheme:boolean = useAppSelector((state) => state.theme.value)
+import Input from './Input';
+import { AuthNavProps } from './types';
+
+const Home:React.FC<AuthNavProps<'HomeScreen'>> = ({navigation,route}) => {
+  const IsLightTheme = false;
   
-  const navigation = useNavigation();
+ 
     
     useLayoutEffect(() => {
         navigation.setOptions({
-         headerShown:false,
+         headerShown:true
       });
     },[]);
 
-   
+    
+     
+    
+  
 
-
-	return (
-		<SafeAreaView style = { {...styles.header, backgroundColor:`${IsLightTheme ? 'whitesmoke' : '#1b1b1b' }`}}>
-         <StatusBar style = 'dark'/>
+	return ( 
+ 
+     
+     <SafeAreaView style = { {...styles.header, backgroundColor:`${IsLightTheme ? 'whitesmoke' : '#1b1b1b' }`}}>
+         <StatusBar style='dark'/>
           <Header/>
 			    <Feed/>
+          <Input/>
 		  </SafeAreaView>
+      
+  
+  
+	
 	)
 }
 
+const Search = () => {
+  return(
+     <Text> Search </Text>
+  )
+}
+const Settings = () => {
+  return(
+     <Text> Settings </Text>
+  )
+}
 const styles = StyleSheet.create({
    header: {
     

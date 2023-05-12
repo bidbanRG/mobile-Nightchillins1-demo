@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import type { RootState } from './store'
-
+import { useAppDispatch, useAppSelector } from './hooks';
 
 interface Theme {
   value: boolean;
@@ -22,9 +22,14 @@ export const counterSlice = createSlice({
   },
 })
 
+ 
+// export const alterTheme = (value:boolean) => {
+//   const { changeTheme } = counterSlice.actions
+//    const dispatch = useAppDispatch();
+//    dispatch(changeTheme(value));
+// }
 export const { changeTheme } = counterSlice.actions
-
 // Other code such as selectors can use the imported `RootState` type
-export const selectCount = (state: RootState) => state.counter.value
+export const selectTheme = useAppSelector((state:RootState) => state.theme.value)
 
 export default counterSlice.reducer

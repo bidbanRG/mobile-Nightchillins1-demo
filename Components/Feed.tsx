@@ -1,12 +1,12 @@
 import React from 'react'
 import { FontAwesome5,MaterialCommunityIcons,Entypo } from '@expo/vector-icons';
-import { StyleSheet, Text, View, TextInput, Buttddon} from 'react-native';
+import { StyleSheet, Text, View, TextInput} from 'react-native';
 import styled from 'styled-components';
-import { useAppSelector } from '../States/hooks'
+
 
 const Feed:React.FC = () => {
   
-    const IsLightTheme:boolean = useAppSelector((state) => state.theme.value)
+    const IsLightTheme = true;
  
      
    return(
